@@ -5,19 +5,22 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import DB.DBCon;
+
 public class UserDAO {
 	
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
+	DBCon dbc = new DBCon();
 
 	public UserDAO() {
-		
+		/*
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/mydatabase";
 			String dbID = "root";
 			String dbPassword = "1125";
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 			
 		} catch (Exception e) {
@@ -25,14 +28,18 @@ public class UserDAO {
 		}
 		
 	}
-	
+	*/
+	}
+
 	public int login (String userID, String userPassword) {
 		String SQL = "SELECT userPassword FROM USER WHERE userID =?";
 		try {
 			
-			pstmt = conn.prepareStatement(SQL);
+		//	pstmt = conn.prepareStatement(SQL);
+			pstmt = dbc.getPStmt(SQL);
 			pstmt.setString(1, userID);
 			rs = pstmt.executeQuery();
+
 			
 			if (rs.next()) {
 				if(rs.getString(1).equals(userPassword)) {
@@ -58,7 +65,8 @@ public class UserDAO {
 
 		try {
 
-			pstmt = conn.prepareStatement(SQL);
+			// pstmt = conn.prepareStatement(SQL);
+			pstmt = dbc.getPStmt(SQL);
 			pstmt.setString(1, user.getUserID());
 			pstmt.setString(2, user.getUserPassword());
 			pstmt.setString(3, user.getUserName());

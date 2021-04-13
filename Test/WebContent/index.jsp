@@ -4,13 +4,11 @@
 
 <html>
 	<head>
-
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width" initial-scale="1">
 
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<title>이상훈 게시판 웹사이트</title>
-
 	</head>
 
 	<body>
@@ -40,7 +38,7 @@
 		<ul class="nav navbar-nav">
 
     		<li><a href="main.jsp">메인</a></li>
-    		<li><a href="bbs.jsp">게시판</a></li>
+    		<li><a href="board.jsp">게시판</a></li>
 
   		</ul>
   		<%

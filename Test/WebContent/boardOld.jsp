@@ -104,13 +104,12 @@
 							ArrayList<Board> list = bdDAO.getList(pageNumber);
 							for (int i = 0; i < list.size(); i++) {
 						%>
-						<tr>
-
-							<td><%=list.get(i).getBdID()%></td>
-							<td><a href="view.jsp?bdID=<%=list.get(i).getBdID()%>"><%=list.get(i).getBdTitle()%></a></td>
-							<td><%=list.get(i).getUserID()%></td>
-							<td><%=list.get(i).getBdDate().substring(0, 11) + list.get(i).getBdDate().substring(11, 13) + "시" + list.get(i).getBdDate().substring(14, 16) + "분"%></td>
-						</tr>
+					<tr>
+						<td>1</td>
+						<td>안녕하세요</td>
+						<td>이상훈</td>
+						<td>2021-04-07</td>
+					</tr>
 						<%
 							}
 						%>
