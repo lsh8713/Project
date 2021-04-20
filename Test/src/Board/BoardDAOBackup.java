@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import DB.DBCon;
 
 
-public class BoardDAO {
+public class BoardDAOBackup {
 		private Connection conn;
 		private ResultSet rs;
 		DBCon dbc = new DBCon();
@@ -43,7 +43,7 @@ public class BoardDAO {
 		}
 
 		public int getNext() { 
-				String SQL = "SELECT bdID FROM test ORDER BY bdID DESC";
+				String SQL = "SELECT bdID FROM Board ORDER BY bdID DESC";
 
 				try {
 				//	PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -60,7 +60,7 @@ public class BoardDAO {
 			}
 
 		public int write(String bdTitle, String userID, String bdContent) {
-				String SQL = "INSERT INTO test VALUES(?, ?, ?, ?, ?, ?)";
+				String SQL = "INSERT INTO Board VALUES(?, ?, ?, ?, ?, ?)";
 				try {
 				//	PreparedStatement pstmt = conn.prepareStatement(SQL);
 					PreparedStatement pstmt = dbc.getPStmt(SQL);
@@ -81,7 +81,7 @@ public class BoardDAO {
 			
 		public ArrayList<Board> getList(int pageNumber){
 
-				String SQL = "SELECT * FROM test WHERE bdID < ? AND bdAvailable = 1 ORDER BY bdID DESC LIMIT 10";
+				String SQL = "SELECT * FROM Board WHERE bdID < ? AND bdAvailable = 1 ORDER BY bdID DESC LIMIT 10";
 				ArrayList<Board> list = new ArrayList<Board>();
 
 				try {
@@ -111,7 +111,7 @@ public class BoardDAO {
 		
 		public Board getBd(int bdID) {
 
-			String SQL = "SELECT * FROM test WHERE bdID = ?";
+			String SQL = "SELECT * FROM Board WHERE bdID = ?";
 
 			try {
 
@@ -140,7 +140,7 @@ public class BoardDAO {
 		}
 		
 		public boolean nextPage (int pageNumber) {
-			String SQL = "SELECT * FROM test WHERE bdID < ? AND bdAvailable = 1 ORDER BY bdID DESC LIMIT 10";
+			String SQL = "SELECT * FROM Board WHERE bdID < ? AND bdAvailable = 1 ORDER BY bdID DESC LIMIT 10";
 			ArrayList<Board> list = new ArrayList<Board>();
 			
 			try {

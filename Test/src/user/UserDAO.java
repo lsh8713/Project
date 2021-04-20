@@ -50,9 +50,7 @@ public class UserDAO {
 			return -1;
 			
 		} catch (Exception e) {
-
 			e.printStackTrace();
-
 		}
 		
 		return -2;

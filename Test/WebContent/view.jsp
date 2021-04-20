@@ -83,16 +83,12 @@
 			%>
 
 			<ul class="nav navbar-nav navbar-right">
-
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회원관리<span class="caret"></span></a>
-
 					<ul class="dropdown-menu">
-
 						<li><a href="logoutAction.jsp">로그아웃</a></li>
 
 					</ul>
 				</li>
-
 			</ul>
 
 			<%
@@ -100,26 +96,20 @@
 			%>
 
 		</div>
-
 	</nav>
 
 	<!-- 게시판 -->
 
 	<div class="container">
-
 		<div class="row">
-
 				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-
 					<thead>
-
 						<tr>
 							<th colspan="3"	style="background-color: #eeeeee; text-align: center;">글 보기 </th>
 						</tr>
 
 					</thead>
 					<tbody>
-
 						<tr>
 							<td style="width: 20%;"> 글 제목 </td>
 							<td colspan="2"><%= bd.getBdTitle() %></td>
@@ -130,19 +120,19 @@
 						</tr>
 						<tr>
 							<td>작성일</td>	
-							<td colspan="2"><%= bd.getBdDate().substring(0, 11) + bd.getBdDate().substring(11, 13) + "시"	+ bd.getBdDate().substring(14, 16) + "분"%></td>
+							<td colspan="2"><%= bd.getBdDate()%></td>
 						</tr>
 						<tr>
 							<td>내용</td>	
 							<td colspan="2" style="min-height: 200px; text-align: left;"><%= bd.getBdContent() %></td>
 						</tr>
 					</tbody>
-
 				</table>	
 
 				<a href = "board.jsp" class="btn btn-primary">목록</a>
 
 				<%
+				
 				//글작성자 본인확인
 					if(userID != null && userID.equals(bd.getUserID())){
 
