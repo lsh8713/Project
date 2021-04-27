@@ -1,7 +1,6 @@
 package Board;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class BoardDAO {
 		}
 
 		public int getNext() { 
-				String SQL = "SELECT bdID FROM test ORDER BY bdID DESC";
+				String SQL = "SELECT bdID FROM Board ORDER BY bdID DESC";
 
 				try {
 				//	PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -59,8 +58,10 @@ public class BoardDAO {
 				return -1;
 			}
 
+		// 쓰기
+		
 		public int write(String bdTitle, String userID, String bdContent) {
-				String SQL = "INSERT INTO test VALUES(?, ?, ?, ?, ?, ?)";
+				String SQL = "INSERT INTO Board VALUES(?, ?, ?, ?, ?, ?)";
 				try {
 				//	PreparedStatement pstmt = conn.prepareStatement(SQL);
 					PreparedStatement pstmt = dbc.getPStmt(SQL);
@@ -81,7 +82,7 @@ public class BoardDAO {
 			
 		public ArrayList<Board> getList(int pageNumber){
 
-				String SQL = "SELECT * FROM test WHERE bdID < ? AND bdAvailable = 1 ORDER BY bdID DESC LIMIT 10";
+				String SQL = "SELECT * FROM Board WHERE bdID < ? AND bdAvailable = 1 ORDER BY bdID DESC LIMIT 10";
 				ArrayList<Board> list = new ArrayList<Board>();
 
 				try {
@@ -111,7 +112,7 @@ public class BoardDAO {
 		
 		public Board getBd(int bdID) {
 
-			String SQL = "SELECT * FROM test WHERE bdID = ?";
+			String SQL = "SELECT * FROM Board WHERE bdID = ?";
 
 			try {
 
@@ -139,8 +140,10 @@ public class BoardDAO {
 
 		}
 		
+		// 페이징
+		
 		public boolean nextPage (int pageNumber) {
-			String SQL = "SELECT * FROM test WHERE bdID < ? AND bdAvailable = 1 ORDER BY bdID DESC LIMIT 10";
+			String SQL = "SELECT * FROM Board WHERE bdID < ? AND bdAvailable = 1 ORDER BY bdID DESC LIMIT 10";
 			ArrayList<Board> list = new ArrayList<Board>();
 			
 			try {
@@ -158,5 +161,46 @@ public class BoardDAO {
 			}
 			return false; 		
 		}
-}
+		
+		//수정
 
+		public int update(int bdID, String bdTitle, String bdContent) {
+
+			String SQL = "UPDATE Board SET bdTitle = ?, bdContent = ? WHERE bdID = ?";
+				
+			try {
+				PreparedStatement pstmt = dbc.getPStmt(SQL);
+					
+				pstmt.setString(1, bdTitle);
+				pstmt.setString(2, bdContent);
+				pstmt.setInt(3, bdID);
+				return pstmt.executeUpdate();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			return -1;
+		}
+		
+		//삭제
+
+		public int delete(int bdID) {
+
+			String SQL = "UPDATE Board SET bdAvailable = 0 WHERE bdID = ?";
+
+			try {
+				
+				PreparedStatement pstmt = dbc.getPStmt(SQL);
+				
+				pstmt.setInt(1, bdID);
+				return pstmt.executeUpdate();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return -1;
+		}
+		
+}

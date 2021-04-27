@@ -74,7 +74,7 @@
 					script.println("</script>");
 				}
 			}
-			%>
+	%>
 
 </body>
 </body>

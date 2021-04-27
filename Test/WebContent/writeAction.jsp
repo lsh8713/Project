@@ -33,12 +33,14 @@
 		if (session.getAttribute("userID") != null) {
 			userID = (String) session.getAttribute("userID");
 		}
+		
 		if (userID == null) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인을 하세요.')");
 			script.println("location.href = 'login.jsp'");
 			script.println("</script>");
+			
 		} else {
 
 			if (bd.getBdTitle() == null || bd.getBdContent() == null) {
@@ -47,7 +49,9 @@
 				script.println("alert('입력이 안된 사항이 있습니다')");
 				script.println("history.back()");
 				script.println("</script>");
+				
 			} else {
+				
 				BoardDAO BbsDAO = new BoardDAO();
 				int result = BbsDAO.write(bd.getBdTitle(), userID, bd.getBdContent());
 				if (result == -1) {
@@ -56,11 +60,14 @@
 					script.println("alert('글쓰기에 실패했습니다')");
 					script.println("history.back()");
 					script.println("</script>");
+					
 				} else {
+					
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
 					script.println("location.href='board.jsp'");
 					script.println("</script>");
+					
 				}
 			}
 		}

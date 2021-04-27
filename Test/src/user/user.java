@@ -39,7 +39,4 @@ public class user {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	
-	
-	
 }
