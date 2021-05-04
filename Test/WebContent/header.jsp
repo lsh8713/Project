@@ -29,8 +29,8 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span></a>
     			<ul class="dropdown-menu">
-     				<li class="active"><a href="login.jsp">로그인</a></li>
-      				<li><a href="Join.jsp">회원가입</a></li>
+     				<li class="presentation"><a href="login.jsp">로그인</a></li>
+      				<li class="presentation"><a href="Join.jsp">회원가입</a></li>
      			</ul>
      		</li>	
      	</ul>
@@ -41,7 +41,9 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><% out.println(userID); %> 님<span class="caret"></span></a>
     			<ul class="dropdown-menu">
-     				<li class="active"><a href="logoutAction.jsp">로그아웃</a></li>
+    				<li class="presentation"><a href="modify.jsp">회원 정보 수정</a></li>
+    				<li role="presentation" class="divider"></li>
+     				<li class="presentation"><a href="logoutAction.jsp">로그아웃</a></li>
      			</ul>
      		</li>	
      	</ul>

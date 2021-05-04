@@ -79,4 +79,49 @@ public class UserDAO {
 		return -1;
 	}
 	
+	//¼öÁ¤
+	
+	public int update(user user) {
+
+		String SQL = "UPDATE user SET userPassword=?, userName=?, userGender=?, userEmail=? WHERE userID = ?";
+			
+		try {
+			PreparedStatement pstmt = dbc.getPStmt(SQL);
+				
+			pstmt.setString(1, user.getUserPassword());
+			pstmt.setString(2, user.getUserName());
+			pstmt.setString(3, user.getUserGender());
+			pstmt.setString(4, user.getUserEmail());
+			pstmt.setString(5, user.getUserID());
+			return pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
+	
+	//Å»Åð
+	
+	public int delete(String userID){
+		String SQL = "DELETE FROM user WHERE userID = ?";
+		
+		
+		try {
+		
+			PreparedStatement pstmt = dbc.getPStmt(SQL);
+			
+			pstmt.setString(1, userID);
+			
+			return pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return -1;
+
+	}
+	
 }

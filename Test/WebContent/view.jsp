@@ -86,7 +86,7 @@
 
 				%>
 						<a class="btn btn-success" href="update.jsp?bdID=<%= bdID %>" class="btn btn-primary">수정</a>
-						<a class="btn btn-danger" onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bdID=<%= bdID %>" class="btn btn-primary">삭제</a>
+						<a class="btn btn-danger" onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bdID=<%= bdID %>">삭제</a>
 				<%					
 					}
 				%>

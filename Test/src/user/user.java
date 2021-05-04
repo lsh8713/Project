@@ -7,6 +7,7 @@ public class user {
 	private String userName;
 	private String userGender;
 	private String userEmail;
+//	private String changePassword;
 	
 	
 	public String getUserID() {
@@ -39,4 +40,12 @@ public class user {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
+	/*
+	public String getChangePassword() {
+		return changePassword;
+	}
+	public void setChangePassword(String changePassword) {
+		this.changePassword = changePassword;
+	}
+	*/
 }
