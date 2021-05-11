@@ -40,12 +40,4 @@ public class user {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	/*
-	public String getChangePassword() {
-		return changePassword;
-	}
-	public void setChangePassword(String changePassword) {
-		this.changePassword = changePassword;
-	}
-	*/
 }

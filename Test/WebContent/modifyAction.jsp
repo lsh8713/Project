@@ -62,7 +62,9 @@
 
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
-					script.println("location.href = 'logoutAction.jsp'");
+					session.invalidate();
+					script.println("location.href = 'index.jsp'");
+					script.println("alert('회원정보가 변경되어 로그아웃 되었습니다.')");
 					script.println("</script>");
 				}
 			}

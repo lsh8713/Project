@@ -43,7 +43,7 @@
 
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('비밀번호가 틀립니다.')");
+			script.println("alert('존재하지 않는 아이디이거나 비밀번호가 일치하지 않습니다.')");
 			script.println("history.back()");
 			script.println("</script>");
 
@@ -56,7 +56,7 @@
 		PrintWriter script = response.getWriter();
 
 		script.println("<script>");
-		script.println("alert('존재하지 않는 아이디 입니다.')");
+		script.println("alert('존재하지 않는 아이디이거나 비밀번호가 일치하지 않습니다.')");
 		script.println("history.back()");
 		script.println("</script>");
 

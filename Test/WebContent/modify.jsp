@@ -82,13 +82,12 @@
 						
 		    		<div class="input-group">
 		    		
-		      			<input type="password" class="form-control" placeholder="비밀번호" name="userPassword2" maxlength="20">
+		      			<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20">
 		      			<span class="input-group-btn">
-							<a class="btn btn-danger" onclick="return confirm('정말로 회원 탈퇴하시겠습니까?')" href="deleteUserAction.jsp?userID=<%= userID %>">탈퇴</a>
-		      			
+							
+		      				<input type="submit" class="btn btn-danger" onclick="return confirm('정말로 회원 탈퇴하시겠습니까?')" value="탈퇴">
 		      			</span>			
 					</div>
-					
 					
 				</div>
 			</form>

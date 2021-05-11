@@ -17,6 +17,7 @@
 
 	<script>
 		location.href = 'index.jsp';
+		alert('로그아웃 되었습니다.');
 	</script>
 
 </body>

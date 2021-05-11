@@ -104,7 +104,7 @@ public class UserDAO {
 	
 	//Ε»Επ
 	
-	public int delete(String userID){
+/*	public int delete(String userID){
 		String SQL = "DELETE FROM user WHERE userID = ?";
 		
 		
@@ -122,6 +122,38 @@ public class UserDAO {
 
 		return -1;
 
+	}
+*/	
+	public int delete (String userID, String userPassword) {
+		String SQL = "SELECT userPassword FROM USER WHERE userID =?";
+		
+		try {
+			
+		//	pstmt = conn.prepareStatement(SQL);
+			pstmt = dbc.getPStmt(SQL);
+			pstmt.setString(1, userID);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				if(rs.getString(1).equals(userPassword)) {
+					String SQL2 = "DELETE FROM user WHERE userID = ?";
+					
+					PreparedStatement pstmt = dbc.getPStmt(SQL2);
+					
+					pstmt.setString(1, userID);
+					
+					return pstmt.executeUpdate();
+				} else
+					return -1;
+			}
+			return -2;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return -1;
+		
 	}
 	
 }

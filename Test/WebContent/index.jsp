@@ -21,15 +21,27 @@
 
 
  	<%@ include file = "header.jsp"%>
-	<h1>Index.jsp</h1>
- 
-   	<%
-  		if(userID != null) {				
-  	%>
-		 <p><% out.println(userID); %>로그인됨<p>
-   	<%
-  		}				
-  	%>
+ 	
+ 	<div class="container">
+		<div class="col-lg-4"></div>
+	
+		<div class="col-lg-4">
+		
+			<!-- 점보트론 -->
+			
+			<div class="jumbotron" style="padding-top: 20px;">
+			
+				<h2 class="display-4">음주운전 적발 기록 조회 사이트</h2>
+				<p class="lead">환영합니다! 음주운전 적발 기록 조회 사이트입니다.</p>
+
+				<p class="lead"> 
+					<a class="btn btn-success btn-lg" href="main.jsp" role="button">음주운전 적발기록 조회하기</a> 
+					<a class="btn btn-info btn-lg" href="board.jsp" role="button">유저 게시판 가기</a> 
+				</p>
+
+			</div>
+		</div>
+	</div>
  <!-- 애니매이션 담당 JQUERY -->
 
  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 

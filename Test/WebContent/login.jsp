@@ -40,7 +40,17 @@
 			    	
 			    </div>
 			    
-			   		<input type="submit" class="btn btn-primary form-control" value="로그인">
+			    <div>
+			    
+			    	<input type="submit" class="btn btn-primary form-control" value="로그인">
+			    	<p></p>
+			    	<input type="button" class="btn btn-primary form-control" value="비밀번호 찾기">
+			    	
+			    </div>
+			    
+			   		
+			   		
+			   		
 			   		
 			   </form>
 			</div>

@@ -10,7 +10,7 @@
 				<span class="icon-bar"></span>
 
     		</button>
-   			 <a class="navbar-brand" href="main.jsp">JSP 게시판</a>
+   			 <a class="navbar-brand" href="index.jsp">음주기록 조회사이트</a>
 
   		</div>
 
@@ -18,7 +18,7 @@
 
 		<ul class="nav navbar-nav">
 
-    		<li><a href="main.jsp">메인</a></li>
+    		<li><a href="main.jsp">음주기록 조회</a></li>
     		<li><a href="board.jsp">게시판</a></li>
 
   		</ul>
