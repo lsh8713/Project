@@ -41,6 +41,7 @@
 		
 		if(request.getParameter("searchWord")!=null){
 			searchWord = (String) request.getParameter("searchWord");
+			session.setAttribute("searchWord",searchWord);
 			System.out.println("searchword from parameter is :" + searchWord);
 		}
 		
@@ -114,7 +115,6 @@
 
 				<%
 					if (pageNumber != 1) {
-						session.setAttribute("searchWord",searchWord);
 				%>
 
 				<a href="searchedmain.jsp?pageNumber=<%=pageNumber - 1%>" class="btn btn-success btn-arrow-left">이전</a>
@@ -123,7 +123,6 @@
 					}
 				
 					if (mdDAO.searchedNextPage(pageNumber, searchWord)) {
-						session.setAttribute("searchWord",searchWord);
 				%>
 
 				<a href="searchedmain.jsp?pageNumber=<%=pageNumber + 1%>" class="btn btn-success btn-arrow-left">다음</a>
@@ -132,22 +131,8 @@
 					}
 				%>
 
-				<%
-					//if logined userID라는 변수에 해당 아이디가 담기고 if not null
+				<button class="btn btn-primary pull-right" onclick="location.href='main.jsp';" type="button">목록</button>
 
-					if (session.getAttribute("userID") != null) {
-				%>
-
-				<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
-
-				<%
-					} else {
-				%>
-
-				<button class="btn btn-primary pull-right" onclick="if(confirm('로그인 하세요'))location.href='login.jsp';" type="button">글쓰기</button>
-				<%
-					}
-				%>
 			
 		</div>
 	</div>
