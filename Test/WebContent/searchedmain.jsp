@@ -62,7 +62,7 @@
 	<div class="container">
 		<form method="post" action="searchedmain.jsp">
 			<div class="input-group">
-				<input type="text" class="form-control pull-right" placeholder="검색" name="searchWord" />
+				<input type="text" class="form-control pull-right" value="<% out.println(searchWord); %>" placeholder="검색" name="searchWord" />
 				
 				<span class="input-group-btn">
 					<button class="btn btn-primary" type="submit" >

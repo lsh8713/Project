@@ -7,8 +7,6 @@ public class user {
 	private String userName;
 	private String userGender;
 	private String userEmail;
-//	private String changePassword;
-	
 	
 	public String getUserID() {
 		return userID;
